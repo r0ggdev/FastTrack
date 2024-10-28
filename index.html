@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./styles/graph.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
+    <script src="./scripts/libs/d3.v7.min.js"></script>
+    <link
+      rel="shortcut icon"
+      href="styles/sources/icon_graph.ico"
+      type="image/x-icon"
+    />
+    <title>FastTrack</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="matrix_column">
+        <div class="txt_lbl">
+          <div class="matrix_lbl">
+            <span id="matrix_range_lbl"></span>
+            <input
+              id="matrix_value_range"
+              type="range"
+              min="8"
+              max="16"
+              step="1"
+              value="8"
+            />
+          </div>
+          <div id="conexion_matrix">
+            <span id="value_conexion"></span>
+            <input
+              id="range_conexion"
+              type="range"
+              min="0"
+              max="100"
+              value="50"
+            />
+          </div>
+        </div>
+        <div id="btn_container">
+          <button id="deselect_btn">🔄️</button>
+          <button id="btn_config">⚙️</button>
+          <button id="btn_random_matrix">Generar matriz</button>
+          <button id="btn_short_path">Buscar Camino Mínimo</button>
+        </div>
+        <p id="nodes_select_lbl"></p>
+
+        <div id="matrix_form"></div>
+      </div>
+
+      <div id="graph_column">
+        <svg id="graph"></svg>
+        <div id="output">
+          <p id="instructions">
+            <strong>Instrucciones Rápidas:</strong><br />
+            1. <strong>Configura la Matriz:</strong> Ajusta el tamaño (8x8 a
+            16x16) con el control deslizante.<br />
+            2. <strong>Genera la Matriz:</strong> Haz clic en "Generar matriz"
+            para crear conexiones aleatorias.<br />
+            3. <strong>Ingresa Datos Manualmente:</strong> Haz clic en las
+            celdas de la matriz para editar los valores.<br />
+            4. <strong>Selecciona Nodos:</strong> Haz clic en el nodo de inicio
+            y luego en el nodo de destino en el gráfico.<br />
+            5. <strong>Buscar Camino Mínimo:</strong> Presiona "Buscar Camino
+            Mínimo" para visualizar el resultado.<br />
+            6. <strong>Configura el Grafo:</strong> Haz clic en ⚙️ para cambiar
+            colores, grosores y tamaños de nodos y enlaces. Guarda los
+            cambios.<br />
+            7. <strong>Reinicia:</strong> Usa "Recargar" para restablecer la
+            matriz y el gráfico.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="configModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Configuración del Grafo</h2>
+
+        <label for="nodeColorPicker">Color de los nodos:</label>
+        <input type="color" id="nodeColorPicker" value="#3048cd" /><br />
+
+        <label for="nodeBorderColorPicker">Color del borde de los nodos:</label>
+        <input type="color" id="nodeBorderColorPicker" value="#6e82f5" /><br />
+
+        <label for="nodeSizeInput">Tamaño de los nodos:</label>
+        <input type="number" id="nodeSizeInput" value="10" /><br />
+
+        <label for="linkColorPicker">Color de los enlaces:</label>
+        <input type="color" id="linkColorPicker" value="#95a5a6" /><br />
+
+        <label for="linkWidthInput">Ancho de los enlaces:</label>
+        <input type="number" id="linkWidthInput" value="2" /><br />
+
+        <label for="highlightColorPicker">Color de resaltado:</label>
+        <input type="color" id="highlightColorPicker" value="#e74c3c" /><br />
+
+        <label for="finalPathColorPicker">Color del camino final:</label>
+        <input type="color" id="finalPathColorPicker" value="#e74c3c" /><br />
+
+        <label for="animationColorPicker">Color de la animación:</label>
+        <input type="color" id="animationColorPicker" value="#f1c40f" /><br />
+
+        <button id="saveChanges">Guardar Cambios</button>
+      </div>
+    </div>
+
+    <script src="./scripts/matrix.js"></script>
+    <script src="./scripts/config.js"></script>
+    <script src="./scripts/graph.js"></script>
+    <script src="./scripts/dijkstra.js"></script>
+  </body>
+</html>

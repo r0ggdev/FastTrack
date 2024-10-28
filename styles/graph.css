@@ -1,0 +1,73 @@
+#graph {
+  width: 100%;
+  height: 100%; 
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  background-color: #f9f9f9; 
+}
+
+.node circle {
+  stroke: #6e82f5;
+  stroke-width: 2px;
+  fill: #3048cd; 
+  cursor: pointer;
+  transition: fill 0.3s, stroke-width 0.3s;
+}
+
+.node text {
+  font-size: 0.8em;
+  fill: #ffffff; 
+  pointer-events: none; 
+}
+
+.node.selected circle {
+  fill: #2ecc71; 
+  stroke: #27ae60; 
+  stroke-width: 4;
+}
+
+.link {
+  fill: none; 
+  stroke: #95a5a6; 
+  stroke-opacity: 0.6; 
+  stroke-width: 2; 
+  transition: stroke 0.3s;
+}
+
+
+/* Animacion de caminos*/
+.link-weight {
+  font-size: 0.8em;
+  font-weight: bold;
+  fill: #333; 
+  pointer-events: none; 
+  transition: font-size 0.3s, fill 0.3s; 
+}
+
+/* Enlace resaltado */
+.link.highlighted {
+  stroke: #f1c40f; 
+  stroke-width: 2;
+}
+
+.node.highlighted circle{
+  fill: #f1c40f; 
+  stroke-width: 0;
+}
+
+
+/* Estilos para el camino final reslatado*/
+.link-weight.highlighted {
+  font-size: 1.2em; 
+  fill: #e74c3c; 
+}
+.link.path-highlighted{
+  stroke: #e74c3c; 
+  stroke-width: 4; 
+}
+.node.path-highlighted circle{
+  fill: #e74c3c;
+  stroke: #e74c3c;
+  stroke-width: 4; 
+}
